@@ -1,0 +1,78 @@
+[
+  {
+    "id": "cf771e8a-5c1a-462f-b4c9-fc745f02d0de",
+    "buyer_id": "cf771e8a-5c1a-462f-b4c9-fc745f02d0de",
+    "customer_id": "cf771e8a-5c1a-462f-b4c9-fc745f02d0de",
+    "seller_id": "cf771e8a-5c1a-462f-b4c9-fc745f02d0de",
+    "currency": "USD",
+    "details": [
+      {
+        "description": "Example",
+        "discount_amount": 0,
+        "quantity": 10,
+        "sku": "EXAMPLE",
+        "subtotal": 11000,
+        "tax_amount": 1000,
+        "tax_details": [
+          {
+            "tax_type": "TAX",
+            "tax_rate": 10,
+            "tax_amount": 1000
+          }
+        ],
+        "unit_price": 1000
+      }
+    ],
+    "shipping_tax_details": [
+      {
+        "tax_type": "TAX",
+        "tax_rate": 10,
+        "tax_amount": 50
+      }
+    ],
+    "shipping_amount": 500,
+    "shipping_discount_amount": 0,
+    "shipping_tax_amount": 50,
+    "tax_amount": 1000,
+    "total_amount": 11550,
+    "original_total_amount": 11550,
+    "foreign_exchange_fee": 0,
+    "paid_amount": 0,
+    "paid_amount_currency": "USD",
+    "due_date": "2021-08-11",
+    "po_number": "EXAMPLE",
+    "comment": "Example Charge",
+    "order_number": "EXAMPLE",
+    "order_url": "https://www.example.com/example",
+    "seller_tax_invoice_number": "EXAMPLE",
+    "seller_tax_invoice_url": "https://www.example.com/example",
+    "invoice_url": "https://www.example.com/invoices/cf771e8a.pdf",
+    "ship_to": {
+      "pickup": false,
+      "company_name": "Example Recipient",
+      "recipient_name": "Example Recipient",
+      "company_address": {
+        "zip": "V3H",
+        "city": "Fernside",
+        "state": "BC",
+        "country": "CA",
+        "address_line1": "12345 Breitenberg Parkway",
+        "address_line2": "Unit 1234"
+      }
+    },
+    "supplier": {
+      "company_name": "Example Supplier",
+      "company_address": {
+        "zip": "V3H",
+        "city": "Fernside",
+        "state": "BC",
+        "country": "CA",
+        "address_line1": "12345 Breitenberg Parkway",
+        "address_line2": "Unit 1234"
+      }
+    },
+    "created": "2021-07-12T23:12:57.128Z",
+    "modified": "2021-07-12T23:12:57.257Z",
+    "status": "Created"
+  }
+]
