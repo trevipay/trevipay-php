@@ -1,0 +1,10 @@
+stages:
+  - Install
+  - Test
+  - SAST
+
+include:
+  - local: dev-bin/gitlab-ci/common.yaml
+  - local: dev-bin/gitlab-ci/install.yaml
+  - local: dev-bin/gitlab-ci/test.yaml
+  # - local: dev-bin/gitlab-ci/sast.yaml

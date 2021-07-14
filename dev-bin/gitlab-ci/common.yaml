@@ -1,0 +1,31 @@
+# Global Variables
+
+variables:
+  PROJECT_NAMESPACE: caasdevx
+  AWS_REGION: us-east-1
+  AWS_ECR_ROOT: 434875166128.dkr.ecr.us-east-1.amazonaws.com
+  ECR_ROOT: $AWS_ECR_ROOT
+  AWS_ECR_REPOSITORY: caasdevx/php
+  IMAGE_CURRENT_TAG: ${STAGE}-${CI_COMMIT_SHORT_SHA}
+  IMAGE_DEVOPS_DOCKER_FULLNAME: ${AWS_ECR_ROOT}/msts/docker:19.03.5-dind.3
+  IMAGE_PHP_CI_RUNNER_FULL_NAME: ${AWS_ECR_ROOT}/${AWS_ECR_REPOSITORY}/php-ci-runner:latest
+  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://localhost:2375
+  DOCKER_TLS_CERTDIR: ''
+
+# Common
+.base-job:
+  image: ${IMAGE_PHP_CI_RUNNER_FULL_NAME}
+  services:
+    - name: ${IMAGE_PHP_CI_RUNNER_FULL_NAME}
+  retry:
+    max: 2
+    when: runner_system_failure
+  interruptible: true
+  tags:
+    - msts-caasdevx-test-runner
+
+.feature-job:
+  rules:
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /feature/
+      when: always
