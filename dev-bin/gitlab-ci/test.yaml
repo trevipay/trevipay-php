@@ -20,14 +20,12 @@
     - mkdir -p -m 777 logs
     - mkdir -p -m 777 ${TEST_SUITE_ARTIFACTS_FOLDER}
     - *script_aws_login
-  # artifacts:
-  #   when: always
-  #   expire_in: 1 week
-  #   paths:
-  #     - ./logs
-  #   reports:
-  #     junit: ['./api/junit.xml', './ui/junit.xml']
-  #     cobertura: ['./api/coverage/cobertura-coverage.xml']
+  artifacts:
+    when: always
+    expire_in: 1 week
+    reports:
+      junit: ['./junit-report.xml']
+      cobertura: ['./cobertura-report.xml']
   tags:
     - msts-caasdevx-test-runner
 

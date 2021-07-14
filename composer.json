@@ -13,7 +13,7 @@
         "squizlabs/php_codesniffer": "3.*"
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit -d xdebug.profiler_enable=on",
+        "test": "./vendor/bin/phpunit -d xdebug.profiler_enable=on --log-junit junit-report.xml --coverage-cobertura cobertura-report.xml",
         "lint": "./vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 ./lib"
     },
     "version": "1.2.0",

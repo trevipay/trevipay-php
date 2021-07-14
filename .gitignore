@@ -3,3 +3,4 @@ composer.lock
 .DS_Store
 .vscode
 .phpunit.result.cache
+*-report.xml
