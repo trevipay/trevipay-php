@@ -20,75 +20,32 @@ sast:
   interruptible: true
   needs: []
 
-# nodejs-scan-sast:
-#   extends:
-#     - .sast-analyzer
-#     - .job-template-scanner-base
-#   rules:
-#     - if: $SAST_DISABLED
-#       when: never
-#     - if: $CI_MERGE_REQUEST_IID
-#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-#       when: always
-
-# eslint-sast:
-#   extends:
-#     - .sast-analyzer
-#     - .job-template-scanner-base
-#   rules:
-#     - if: $SAST_DISABLED
-#       when: never
-#     - if: $CI_MERGE_REQUEST_IID
-#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-#       when: always
-
-# semgrep-sast:
-#   extends:
-#     - .sast-analyzer
-#     - .job-template-scanner-base
-#   rules:
-#     - if: $SAST_DISABLED
-#       when: never
-#     - if: $CI_MERGE_REQUEST_IID
-#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-#       exists:
-#         - '**/*.js'
-#         # - '**/*.jsx'
-#         - '**/*.ts'
-#         - '**/*.tsx'
+phpcs-security-audit-sast:
+  extends:
+    - .sast-analyzer
+    - .job-template-scanner-base
+  rules:
+    - if: $SAST_DISABLED
+      when: never
+    - if: $CI_MERGE_REQUEST_ID
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: always
 
 ### Gitlab Dependency Scanning Overrides
 dependency_scanning:
   stage: SAST
 
-# Retire JS only supports scanning the first found yarn.lock file,
-# AKA /api is scanned, but /ui is not.
-# retire-js-dependency_scanning:
-#   extends:
-#     - .ds-analyzer
-#     - .job-template-scanner-base
-#   rules:
-#     - if: $DEPENDENCY_SCANNING_DISABLED
-#       when: never
-#     - if: $CI_MERGE_REQUEST_IID
-#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-#       when: always
-#   before_script:
-#     - cp api/.npmrc-default api/.npmrc
-
-# gemnasium-dependency_scanning:
-#   extends:
-#     - .ds-analyzer
-#     - .job-template-scanner-base
-#   rules:
-#     - if: $DEPENDENCY_SCANNING_DISABLED
-#       when: never
-#     - if: $CI_MERGE_REQUEST_IID
-#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-#       when: always
-#   before_script:
-#     - cp api/.npmrc-default api/.npmrc
-#   artifacts:
-#     paths:
-#       - gl-dependency-scanning-report.json
-#     expire_in: 1 day
+gemnasium-dependency_scanning:
+  extends:
+    - .ds-analyzer
+    - .job-template-scanner-base
+  rules:
+    - if: $DEPENDENCY_SCANNING_DISABLED
+      when: never
+    - if: $CI_MERGE_REQUEST_ID
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: always
+  artifacts:
+    paths:
+      - gl-dependency-scanning-report.json
+    expire_in: 1 day
