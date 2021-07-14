@@ -31,7 +31,22 @@
   tags:
     - msts-caasdevx-test-runner
 
-###### API TESTS
+###### LINTING
+.job-linting:
+  extends: .job-base-tests
+  needs:
+    - install:lib
+  variables:
+    TEST_CONTAINER_NAME: lib-lint
+    TEST_SUITE_ARTIFACTS_FOLDER: logs
+  script:
+    - composer lint
+
+Library Linting:
+  extends:
+    - .job-linting
+
+###### LIBRARY TESTS
 .job-lib-tests:
   extends: .job-base-tests
   needs:

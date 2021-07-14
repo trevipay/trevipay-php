@@ -33,7 +33,7 @@ install:lib:update-cache:
   cache:
     key:
       files:
-        - composer.lock
+        - composer.json
       prefix: install:lib
     paths:
       - vendor
