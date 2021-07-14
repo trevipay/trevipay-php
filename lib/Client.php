@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace TreviPay\TreviPay;
@@ -46,7 +47,11 @@ class Client
     public function __construct(string $apiKey, ?ClientOptions $options = null)
     {
         $this->options = $options ?? new ClientOptions();
-        $apiClient = new ApiClient($this->options->getLogger(), $this->options->getMaskValue(), new \GuzzleHttp\Client());
+        $apiClient = new ApiClient(
+            $this->options->getLogger(),
+            $this->options->getMaskValue(),
+            new \GuzzleHttp\Client()
+        );
         $treviPayRequest = $this->options->getTreviPayRequest();
         $configProvider = $treviPayRequest->getConfigProvider();
         $configProvider->setApiKey($apiKey);
