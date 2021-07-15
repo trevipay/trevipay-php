@@ -143,46 +143,46 @@ interface RefundResponseInterface
     /**
      * @return string|null
      */
-    public function getCreditAmountCurrency(): ?string;
+    public function getRefundAmountCurrency(): ?string;
 
     /**
-     * @param string $creditAmountCurrency
+     * @param string $refundAmountCurrency
      * @return RefundResponseInterface
      */
-    public function setCreditAmountCurrency(string $creditAmountCurrency): RefundResponseInterface;
+    public function setRefundAmountCurrency(string $refundAmountCurrency): RefundResponseInterface;
 
     /**
      * @return int|null
      */
-    public function getCreditAmount(): ?int;
+    public function getRefundAmount(): ?int;
 
     /**
-     * @param int $creditAmount
+     * @param int $refundAmount
      * @return RefundResponseInterface
      */
-    public function setCreditAmount(int $creditAmount): RefundResponseInterface;
+    public function setRefundAmount(int $refundAmount): RefundResponseInterface;
 
     /**
      * @return string|null
      */
-    public function getCreditReason(): ?string;
+    public function getRefundReason(): ?string;
 
     /**
-     * @param string $creditReason
+     * @param string $refundReason
      * @return RefundResponseInterface
      */
-    public function setCreditReason(string $creditReason): RefundResponseInterface;
+    public function setRefundReason(string $refundReason): RefundResponseInterface;
 
     /**
      * @return string|null
      */
-    public function getCreditComment(): ?string;
+    public function getRefundComment(): ?string;
 
     /**
-     * @param string $creditComment
+     * @param string $refundComment
      * @return RefundResponseInterface
      */
-    public function setCreditComment(string $creditComment): RefundResponseInterface;
+    public function setRefundComment(string $refundComment): RefundResponseInterface;
 
     /**
      * @return RefundDetailInterface[]

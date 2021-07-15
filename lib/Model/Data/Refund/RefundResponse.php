@@ -14,7 +14,7 @@ use TreviPay\TreviPay\Model\RequestDataObject;
 class RefundResponse extends RequestDataObject implements RefundResponseInterface
 {
     /**
-     * Identifier of a Credit
+     * Identifier of a Refund
      */
     private const ID = 'id';
     private const CHARGE_ID = 'charge_id';
@@ -259,70 +259,70 @@ class RefundResponse extends RequestDataObject implements RefundResponseInterfac
     /**
      * @return string|null
      */
-    public function getCreditAmountCurrency(): ?string
+    public function getRefundAmountCurrency(): ?string
     {
         return $this->getData(self::REFUND_AMOUNT_CURRENCY);
     }
 
     /**
-     * @param string $creditAmountCurrency
+     * @param string $refundAmountCurrency
      * @return RefundResponseInterface
      */
-    public function setCreditAmountCurrency(string $creditAmountCurrency): RefundResponseInterface
+    public function setRefundAmountCurrency(string $refundAmountCurrency): RefundResponseInterface
     {
-        return $this->setData(self::REFUND_AMOUNT_CURRENCY, $creditAmountCurrency);
+        return $this->setData(self::REFUND_AMOUNT_CURRENCY, $refundAmountCurrency);
     }
 
 
     /**
      * @return int|null
      */
-    public function getCreditAmount(): ?int
+    public function getRefundAmount(): ?int
     {
         return $this->getData(self::REFUND_AMOUNT);
     }
 
     /**
-     * @param int $creditAmount
+     * @param int $refundAmount
      * @return RefundResponseInterface
      */
-    public function setCreditAmount(int $creditAmount): RefundResponseInterface
+    public function setRefundAmount(int $refundAmount): RefundResponseInterface
     {
-        return $this->setData(self::REFUND_AMOUNT, $creditAmount);
+        return $this->setData(self::REFUND_AMOUNT, $refundAmount);
     }
 
     /**
      * @return string|null
      */
-    public function getCreditComment(): ?string
+    public function getRefundComment(): ?string
     {
         return $this->getData(self::REFUND_COMMENT);
     }
 
     /**
-     * @param string $creditComment
+     * @param string $refundComment
      * @return RefundResponseInterface
      */
-    public function setCreditComment(string $creditComment): RefundResponseInterface
+    public function setRefundComment(string $refundComment): RefundResponseInterface
     {
-        return $this->setData(self::REFUND_COMMENT, $creditComment);
+        return $this->setData(self::REFUND_COMMENT, $refundComment);
     }
 
     /**
      * @return string|null
      */
-    public function getCreditReason(): ?string
+    public function getRefundReason(): ?string
     {
         return $this->getData(self::REFUND_REASON);
     }
 
     /**
-     * @param string $creditReason
+     * @param string $refundReason
      * @return RefundResponseInterface
      */
-    public function setCreditReason(string $creditReason): RefundResponseInterface
+    public function setRefundReason(string $refundReason): RefundResponseInterface
     {
-        return $this->setData(self::REFUND_REASON, $creditReason);
+        return $this->setData(self::REFUND_REASON, $refundReason);
     }
 
     /**

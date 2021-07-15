@@ -51,16 +51,16 @@ interface CreateRefundRequestInterface extends RefundResponseInterface
     public function setDiscountAmount(int $discountAmount): RefundResponseInterface;
 
   /**
-   * @param string $creditReason
+   * @param string $refundReason
    * @return RefundResponseInterface
    */
-    public function setCreditReason(string $creditReason): RefundResponseInterface;
+    public function setRefundReason(string $refundReason): RefundResponseInterface;
 
   /**
-   * @param string $creditComment
+   * @param string $refundComment
    * @return RefundResponseInterface
    */
-    public function setCreditComment(string $creditComment): RefundResponseInterface;
+    public function setRefundComment(string $refundComment): RefundResponseInterface;
 
   /**
    * @param array $items
