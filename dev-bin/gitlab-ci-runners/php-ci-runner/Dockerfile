@@ -20,7 +20,16 @@ RUN apk add --no-cache \
 		tar \
 		xz \
 # https://github.com/docker-library/php/issues/494
-		openssl
+		openssl \
+		libpng-dev \
+		libmcrypt-dev \
+		libpng-dev \
+		libjpeg-turbo-dev \
+		libzip-dev \
+		freetype-dev \
+		icu-dev \
+		libxslt-dev \
+		unzip
 
 # ensure www-data user exists
 RUN set -eux; \
@@ -181,6 +190,27 @@ RUN apk add --no-cache $PHPIZE_DEPS \
 
 # sodium was built as a shared module (so that it can be replaced later if so desired), so let's enable it too (https://github.com/docker-library/php/issues/598)
 RUN docker-php-ext-enable sodium
+
+# Install everything required
+RUN docker-php-ext-install pdo_mysql \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install gd \
+    && docker-php-ext-install mbstring \
+    && docker-php-ext-install zip \
+    && docker-php-ext-install intl \
+    && docker-php-ext-install xsl \
+    && docker-php-ext-install soap \
+    && docker-php-ext-install sockets \
+    && docker-php-ext-install bcmath \
+    && docker-php-ext-install ctype \
+    && docker-php-ext-install dom \
+    && docker-php-ext-install hash \
+    && docker-php-ext-install iconv \
+    && docker-php-ext-install simplexml
+
+# install composer
+RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/11a3bc677c1e6f2b120578d61b780aed7bfdff58/web/installer -O - -q | php -- --quiet
+RUN mv composer.phar /usr/local/bin/composer
 
 ENTRYPOINT ["docker-php-entrypoint"]
 CMD ["php", "-a"]
