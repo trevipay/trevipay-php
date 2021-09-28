@@ -56,14 +56,15 @@ class TreviPayRequest
         ?string $id = null,
         string $httpMethod = 'GET',
         int $expectedStatusCode = 200,
-        ?string $apiKey = null
+        ?string $apiKey = null,
+        ?string $additionalPathParam = null
     ): Transfer {
         return $this->transferBuilder
             ->setHttpMethod($httpMethod)
             ->setMethodName($methodName)
             ->setHeaders($this->getHeaders($apiKey))
             ->setBody($this->getBody($request, $httpMethod))
-            ->setUri($this->getUri($methodName, $httpMethod, $request, $id))
+            ->setUri($this->getUri($methodName, $httpMethod, $request, $id, $additionalPathParam))
             ->setDebugData($this->prepareDebugData($methodName, $httpMethod, $request, $id))
             ->setExpectedStatusCode($expectedStatusCode)
             ->build();
@@ -167,10 +168,16 @@ class TreviPayRequest
      * @param string $httpMethod
      * @param array $request
      * @param string|null $id
+     * @param string|null $additionalPathParam
      * @return string
      */
-    private function getUri(string $methodName, string $httpMethod, array $request, ?string $id): string
-    {
+    private function getUri(
+        string $methodName,
+        string $httpMethod,
+        array $request,
+        ?string $id,
+        ?string $additionalPathParam
+    ): string {
         unset($request['id']);
 
         $params = '';
@@ -178,6 +185,13 @@ class TreviPayRequest
             $params = '?' . http_build_query($request);
         }
 
-        return $this->configProvider->getUri($methodName, $id) . $params;
+        $formattedAdditionalPathParam = '';
+        if ($additionalPathParam !== null) {
+            $formattedAdditionalPathParam = substr($additionalPathParam, 0, 1) === '/'
+                ? $additionalPathParam
+                : '/' . $additionalPathParam;
+        }
+
+        return $this->configProvider->getUri($methodName, $id) . $params . $formattedAdditionalPathParam;
     }
 }

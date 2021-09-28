@@ -64,7 +64,10 @@ class AuthorizationApiCall
             self::METHOD_NAME,
             [],
             $id,
-            'DELETE'
+            'POST',
+            200,
+            null,
+            'cancel'
         );
         $result = $this->apiClient->execute($transfer);
 
