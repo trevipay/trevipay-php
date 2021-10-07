@@ -40,9 +40,9 @@ interface BuyerResponseInterface
     public function setName(string $businessName): BuyerResponseInterface;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getClientReferenceBuyerId(): string;
+    public function getClientReferenceBuyerId(): ?string;
 
     /**
      * @param string $clientReferenceBuyerId

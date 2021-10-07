@@ -16,7 +16,7 @@
         "test": "./vendor/bin/phpunit -d xdebug.profiler_enable=on --log-junit junit-report.xml --coverage-cobertura cobertura-report.xml",
         "lint": "./vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 ./lib"
     },
-    "version": "1.0.1",
+    "version": "1.0.2",
     "autoload": {
         "psr-4": {
             "TreviPay\\TreviPay\\": "lib/"

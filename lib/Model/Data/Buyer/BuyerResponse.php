@@ -92,9 +92,9 @@ class BuyerResponse extends RequestDataObject implements BuyerResponseInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getClientReferenceBuyerId(): string
+    public function getClientReferenceBuyerId(): ?string
     {
         return $this->getData(self::CLIENT_REFERENCE_BUYER_ID);
     }

@@ -43,7 +43,7 @@ class Client
     /**
      * @var RefundApiCall
      */
-    public $credit;
+    public $refund;
 
     /**
      * @var ClientOptions
