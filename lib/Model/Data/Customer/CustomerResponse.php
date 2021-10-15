@@ -27,7 +27,7 @@ class CustomerResponse extends RequestDataObject implements CustomerResponseInte
 
     public const CREDIT_AUTHORIZED = 'credit_authorized';
 
-    public const M2_REQUIRED_FIELDS = [
+    public const REQUIRED_FIELDS = [
         self::ID,
         self::CUSTOMER_NAME,
         self::CLIENT_REFERENCE_CUSTOMER_ID,

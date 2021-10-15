@@ -35,7 +35,7 @@ class AuthorizationResponse extends RequestDataObject implements AuthorizationRe
 
     public const MODIFIED = 'modified';
 
-    public const M2_REQUIRED_FIELDS = [
+    public const REQUIRED_FIELDS = [
         self::ID,
         self::SELLER_ID,
         self::BUYER_ID,
@@ -45,7 +45,6 @@ class AuthorizationResponse extends RequestDataObject implements AuthorizationRe
         self::CAPTURED_AMOUNT,
         self::FOREIGN_EXCHANGE_FEE,
         self::STATUS,
-        self::PO_NUMBER,
         self::EXPIRES,
         self::CREATED,
         self::MODIFIED,

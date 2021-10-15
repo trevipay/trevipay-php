@@ -29,7 +29,7 @@ class BuyerResponse extends RequestDataObject implements BuyerResponseInterface
 
     public const CREDIT_AUTHORIZED = 'credit_authorized';
 
-    public const M2_REQUIRED_FIELDS = [
+    public const REQUIRED_FIELDS = [
         self::ID,
         self::NAME,
         self::BUYER_STATUS,
