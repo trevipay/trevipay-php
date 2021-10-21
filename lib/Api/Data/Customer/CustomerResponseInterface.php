@@ -51,15 +51,15 @@ interface CustomerResponseInterface
     public function setCustomerStatus(string $status): CustomerResponseInterface;
 
     /**
-     * @return string
+     * @return string|string[]
      */
-    public function getCurrency(): string;
+    public function getCurrency();
 
     /**
-     * @param string $currency
+     * @param string|string[] $currency
      * @return CustomerResponseInterface
      */
-    public function setCurrency(string $currency): CustomerResponseInterface;
+    public function setCurrency($currency): CustomerResponseInterface;
 
     /**
      * @return int

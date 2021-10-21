@@ -108,18 +108,18 @@ class CustomerResponse extends RequestDataObject implements CustomerResponseInte
     }
 
     /**
-     * @return string
+     * @return string|string[]
      */
-    public function getCurrency(): string
+    public function getCurrency()
     {
         return $this->getData(self::CURRENCY);
     }
 
     /**
-     * @param string $currency
+     * @param string|string[] $currency
      * @return CustomerResponseInterface
      */
-    public function setCurrency(string $currency): CustomerResponseInterface
+    public function setCurrency($currency): CustomerResponseInterface
     {
         return $this->setData(self::CURRENCY, $currency);
     }

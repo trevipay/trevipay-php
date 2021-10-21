@@ -62,15 +62,15 @@ interface BuyerResponseInterface
     public function setBuyerStatus(string $status): BuyerResponseInterface;
 
     /**
-     * @return string
+     * @return string|string[]
      */
-    public function getCurrency(): string;
+    public function getCurrency();
 
     /**
-     * @param string $currency
+     * @param string|string[] $currency
      * @return BuyerResponseInterface
      */
-    public function setCurrency(string $currency): BuyerResponseInterface;
+    public function setCurrency($currency): BuyerResponseInterface;
 
     /**
      * @return int

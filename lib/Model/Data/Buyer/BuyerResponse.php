@@ -126,18 +126,18 @@ class BuyerResponse extends RequestDataObject implements BuyerResponseInterface
     }
 
     /**
-     * @return string
+     * @return string|string[]
      */
-    public function getCurrency(): string
+    public function getCurrency()
     {
         return $this->getData(self::CURRENCY);
     }
 
     /**
-     * @param string $currency
+     * @param string|string[] $currency
      * @return BuyerResponseInterface
      */
-    public function setCurrency(string $currency): BuyerResponseInterface
+    public function setCurrency($currency): BuyerResponseInterface
     {
         return $this->setData(self::CURRENCY, $currency);
     }
