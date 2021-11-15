@@ -35,7 +35,7 @@ class ValidationError implements ValidationErrorInterface
      * @param string $keyword
      * @return ValidationErrorInterface
      */
-    public function setKeyword(string $keyword): ValidationErrorInterface
+    public function setKeyword(?string $keyword): ValidationErrorInterface
     {
         $this->parameters[self::KEYWORD] = $keyword;
 
@@ -54,7 +54,7 @@ class ValidationError implements ValidationErrorInterface
      * @param string $dataPath
      * @return ValidationErrorInterface
      */
-    public function setDataPath(string $dataPath): ValidationErrorInterface
+    public function setDataPath(?string $dataPath): ValidationErrorInterface
     {
         $this->parameters[self::DATA_PATH] = $dataPath;
 
@@ -73,7 +73,7 @@ class ValidationError implements ValidationErrorInterface
      * @param string $schemaPath
      * @return ValidationErrorInterface
      */
-    public function setSchemaPath(string $schemaPath): ValidationErrorInterface
+    public function setSchemaPath(?string $schemaPath): ValidationErrorInterface
     {
         $this->parameters[self::SCHEMA_PATH] = $schemaPath;
 
@@ -92,7 +92,7 @@ class ValidationError implements ValidationErrorInterface
      * @param array $params
      * @return ValidationErrorInterface
      */
-    public function setParams(array $params): ValidationErrorInterface
+    public function setParams(?array $params): ValidationErrorInterface
     {
         $this->parameters[self::PARAMS] = $params;
 
@@ -111,7 +111,7 @@ class ValidationError implements ValidationErrorInterface
      * @param string $message
      * @return ValidationErrorInterface
      */
-    public function setMessage(string $message): ValidationErrorInterface
+    public function setMessage(?string $message): ValidationErrorInterface
     {
         $this->parameters[self::MESSAGE] = $message;
 
