@@ -15,7 +15,7 @@ interface ValidationErrorInterface
      * @param string $keyword
      * @return ValidationErrorInterface
      */
-    public function setKeyword(string $keyword): ValidationErrorInterface;
+    public function setKeyword(?string $keyword): ValidationErrorInterface;
 
     /**
      * @return string|null
@@ -26,7 +26,7 @@ interface ValidationErrorInterface
      * @param string $dataPath
      * @return ValidationErrorInterface
      */
-    public function setDataPath(string $dataPath): ValidationErrorInterface;
+    public function setDataPath(?string $dataPath): ValidationErrorInterface;
 
     /**
      * @return string|null
@@ -37,7 +37,7 @@ interface ValidationErrorInterface
      * @param string $schemaPath
      * @return ValidationErrorInterface
      */
-    public function setSchemaPath(string $schemaPath): ValidationErrorInterface;
+    public function setSchemaPath(?string $schemaPath): ValidationErrorInterface;
 
     /**
      * @return array|null
@@ -48,7 +48,7 @@ interface ValidationErrorInterface
      * @param array $params
      * @return ValidationErrorInterface
      */
-    public function setParams(array $params): ValidationErrorInterface;
+    public function setParams(?array $params): ValidationErrorInterface;
 
     /**
      * @return string|null
@@ -59,5 +59,5 @@ interface ValidationErrorInterface
      * @param string $message
      * @return ValidationErrorInterface
      */
-    public function setMessage(string $message): ValidationErrorInterface;
+    public function setMessage(?string $message): ValidationErrorInterface;
 }
