@@ -50,13 +50,13 @@ class Client
      */
     private $options;
 
-    public function __construct(string $apiKey, ?ClientOptions $options = null)
+    public function __construct(string $apiKey, ?ClientOptions $options = null, ?\GuzzleHttp\Client $client = null)
     {
         $this->options = $options ?? new ClientOptions();
         $apiClient = new ApiClient(
             $this->options->getLogger(),
             $this->options->getMaskValue(),
-            new \GuzzleHttp\Client()
+            $client ?? new \GuzzleHttp\Client()
         );
         $treviPayRequest = $this->options->getTreviPayRequest();
         $configProvider = $treviPayRequest->getConfigProvider();

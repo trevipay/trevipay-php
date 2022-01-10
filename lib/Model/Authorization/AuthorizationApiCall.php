@@ -95,4 +95,21 @@ class AuthorizationApiCall
 
         return new AuthorizationResponse($result);
     }
+
+    /**
+     * @param string $id
+     * @return AuthorizationResponseInterface
+     * @throws ApiClientException
+     */
+    public function retrieve(string $id): AuthorizationResponseInterface
+    {
+        $transfer = $this->treviPayRequest->create(
+            self::METHOD_NAME,
+            [],
+            $id
+        );
+        $result = $this->apiClient->execute($transfer);
+
+        return new AuthorizationResponse($result);
+    }
 }

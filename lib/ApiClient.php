@@ -151,10 +151,7 @@ class ApiClient implements ApiClientInterface
 
         foreach ($responseBody['validationErrors'] as $rawValidationError) {
             $validationError = new ValidationError();
-            $validationError->setKeyword($rawValidationError['keyword']);
             $validationError->setDataPath($rawValidationError['dataPath']);
-            $validationError->setSchemaPath($rawValidationError['schemaPath']);
-            $validationError->setParams($rawValidationError['params']);
             $validationError->setMessage($rawValidationError['message']);
             $errorResponse->addValidationError($validationError);
         }
