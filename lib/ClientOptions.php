@@ -35,9 +35,9 @@ class ClientOptions
      */
     private $configProvider;
 
-    public function __construct(string $treviPayApiBaseUri = self::TREVIPAY_API_BASE_URI)
+    public function __construct(string $treviPayApiBaseUri = self::TREVIPAY_API_BASE_URI, ?LoggerInterface $logger = null)
     {
-        $this->logger = new Logger('api_client');
+        $this->logger = $logger ?? new Logger('api_client');
         $this->maskValue = new MaskValue();
 
         $this->configProvider = new ClientConfigProvider($this->maskValue);
