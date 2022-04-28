@@ -4,3 +4,5 @@ composer.lock
 .vscode
 .phpunit.result.cache
 *-report.xml
+
+.idea/
