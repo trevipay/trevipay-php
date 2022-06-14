@@ -70,11 +70,12 @@ class TreviPayRequest
             ->build();
     }
 
-    private function getHeaders(?string $apiKey = null): array
+    public function getHeaders(?string $apiKey = null): array
     {
         return [
             'Authorization' => $this->getAuthorizationHeaderValue($apiKey),
             'Content-Type' => 'application/json',
+            'User-Agent' => $this->configProvider->getIntegrationInfo(),
         ];
     }
 

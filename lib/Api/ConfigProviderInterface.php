@@ -18,4 +18,9 @@ interface ConfigProviderInterface
      * @return string
      */
     public function getUri(string $methodName, ?string $id = null, bool $maskId = false): string;
+
+    /**
+     * @return string
+     */
+    public function getIntegrationInfo(): ?string;
 }

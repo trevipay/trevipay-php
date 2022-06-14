@@ -25,6 +25,11 @@ class ClientConfigProvider implements ConfigProviderInterface
      */
     private $maskValue;
 
+    /**
+     * @var string
+     */
+    private $integration;
+
     public function __construct(
         MaskValue $maskValue
     ) {
@@ -85,5 +90,17 @@ class ClientConfigProvider implements ConfigProviderInterface
         }
 
         return $apiEndpoint;
+    }
+
+    public function getIntegrationInfo(): ?string
+    {
+        return $this->integration;
+    }
+
+    public function setIntegrationInfo(string $integrationInfo): ClientConfigProvider
+    {
+        $this->integration = $integrationInfo;
+
+        return $this;
     }
 }
