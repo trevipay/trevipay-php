@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 
 namespace TreviPay\TreviPay\Model\Data\Charge\CreateMethod;
 

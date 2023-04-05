@@ -14,10 +14,10 @@
         "fakerphp/faker": "v1.16.0"
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit -d xdebug.profiler_enable=on --log-junit junit-report.xml --coverage-cobertura cobertura-report.xml --coverage-text",
+        "test": "./vendor/bin/phpunit --coverage-cobertura ./cobertura-report.xml --coverage-text",
         "lint": "./vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 ./lib"
     },
-    "version": "1.0.7",
+    "version": "1.0.8",
     "autoload": {
         "psr-4": {
             "TreviPay\\TreviPay\\": "lib/"
