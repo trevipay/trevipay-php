@@ -17,7 +17,6 @@
         "test": "./vendor/bin/phpunit --coverage-cobertura ./cobertura-report.xml --coverage-text",
         "lint": "./vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 ./lib"
     },
-    "version": "1.0.8-beta",
     "autoload": {
         "psr-4": {
             "TreviPay\\TreviPay\\": "lib/"
