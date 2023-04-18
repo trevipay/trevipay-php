@@ -6,3 +6,4 @@ composer.lock
 *-report.xml
 
 .idea/
+auth.json

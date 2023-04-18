@@ -10,7 +10,6 @@ composer require trevipay/trevipay-php
 ```
 
 ## Usage
-
 ### Getting Started
 
 The quickest and simplest way to get started is with the following:

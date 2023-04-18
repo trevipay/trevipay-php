@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 
 namespace TreviPay\TreviPay\Model\Http;
 
@@ -25,6 +24,8 @@ class TreviPayRequest
      * @var MaskValue
      */
     private $maskValue;
+
+    public const IDEMPOTENCY_KEY = 'idempotency_key';
 
     public function __construct(
         TransferBuilder $transferBuilder,
@@ -59,10 +60,11 @@ class TreviPayRequest
         ?string $apiKey = null,
         ?string $additionalPathParam = null
     ): Transfer {
+
         return $this->transferBuilder
             ->setHttpMethod($httpMethod)
             ->setMethodName($methodName)
-            ->setHeaders($this->getHeaders($apiKey))
+            ->setHeaders($this->getHeaders($apiKey, $this->getIdempotencyKey($request)))
             ->setBody($this->getBody($request, $httpMethod))
             ->setUri($this->getUri($methodName, $httpMethod, $request, $id, $additionalPathParam))
             ->setDebugData($this->prepareDebugData($methodName, $httpMethod, $request, $id))
@@ -70,13 +72,19 @@ class TreviPayRequest
             ->build();
     }
 
-    public function getHeaders(?string $apiKey = null): array
+    public function getHeaders(?string $apiKey = null, ?string $idempotentKey = null): array
     {
-        return [
+        $headers = [
             'Authorization' => $this->getAuthorizationHeaderValue($apiKey),
             'Content-Type' => 'application/json',
-            'User-Agent' => $this->configProvider->getIntegrationInfo(),
+            'User-Agent' => $this->configProvider->getIntegrationInfo()
         ];
+
+        if ($idempotentKey) {
+            $headers['Idempotency-Key'] = $idempotentKey;
+        }
+
+        return $headers;
     }
 
     private function getAuthorizationHeaderValue(?string $apiKey = null): string
@@ -161,6 +169,9 @@ class TreviPayRequest
      */
     private function getBody(array $request, string $httpMethod): string
     {
+        if ($this->getIdempotencyKey($request)) {
+            $request = array_filter($request, fn($key) => $key !== self::IDEMPOTENCY_KEY,ARRAY_FILTER_USE_KEY);
+        }
         return $request && $httpMethod !== 'GET' ? json_encode($request, JSON_UNESCAPED_SLASHES) : '';
     }
 
@@ -194,5 +205,17 @@ class TreviPayRequest
         }
 
         return $this->configProvider->getUri($methodName, $id) . $params . $formattedAdditionalPathParam;
+    }
+    /**
+     * GetIdempotencyKey
+     * get idempotency key from request body
+     * @param array $request
+     * @return string | null
+     */
+    private function getIdempotencyKey(array $request): string | null {
+        if (array_key_exists(self::IDEMPOTENCY_KEY, $request)) {
+            return $request[self::IDEMPOTENCY_KEY];
+        }
+        return null;
     }
 }
