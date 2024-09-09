@@ -1,0 +1,17 @@
+{
+  "id": "cf771e8a-5c1a-462f-b4c9-fc745f02d0de",
+  "buyer_status": "Active",
+  "client_reference_buyer_id": "1_460a4366-d202-49cb-8f28-0fbf6c84eadc",
+  "credit_authorized": 0,
+  "credit_available": 1000000,
+  "credit_balance": 0,
+  "credit_limit": 1000000,
+  "currency": "USD",
+  "customer_id": "cf771e8a-5c1a-462f-b4c9-fc745f02d0de",
+  "customer_status": "Active",
+  "email": "example@email.com.au",
+  "locale": "en-US",
+  "name": "Example Buyer",
+  "phone": "+12053660682",
+  "role": ["Account Admin"]
+}
