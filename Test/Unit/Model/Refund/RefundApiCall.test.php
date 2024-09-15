@@ -91,7 +91,7 @@ class RefundApiCallTest extends \PHPUnit\Framework\TestCase
 
   public function test_can_call_create_401(): void
   {
-    $create401 = json_decode(file_get_contents("Test/Fixtures/Refund/CreateResponse401.json"), TRUE);
+    $create401 = json_decode(file_get_contents("Test/Fixtures/Error/Response401.json"), TRUE);
     $this->mock_request(401, $create401);
     $this->expectException(\TreviPay\TreviPay\Exception\IncorrectStatusCodeException::class);
     $this->treviPay->refund->create([]);
