@@ -3,7 +3,7 @@
 
 namespace TreviPay\TreviPay;
 
-use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
@@ -42,14 +42,14 @@ class ApiClient implements ApiClientInterface
     private $maskValue;
 
     /**
-     * @var ClientInterface
+     * @var Client
      */
     private $guzzleHttpClient;
 
     public function __construct(
         LoggerInterface $treviPayLogger,
         MaskValue $maskValue,
-        ClientInterface $client
+        Client $client
     ) {
         $this->treviPayLogger = $treviPayLogger;
         $this->maskValue = $maskValue;
