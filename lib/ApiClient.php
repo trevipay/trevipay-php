@@ -77,7 +77,7 @@ class ApiClient implements ApiClientInterface
             $debugData = $transfer->getDebugData();
             $response = $this->guzzleHttpClient->send(
                 $request,
-                ['allow_redirects' => false, 'max' => 0, 'protocols' => ['https', 'connect_timeout' => 30]]
+                ['allow_redirects' => false, 'connect_timeout' => 30, 'protocols' => ['https']]
             );
 
             $responseBody = json_decode((string)$response->getBody(), true);
