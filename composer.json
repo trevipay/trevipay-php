@@ -15,7 +15,7 @@
     "monolog/monolog": "^2.0 || ^3.9.0"
   },
   "require-dev": {
-    "fakerphp/faker": "v1.16.0",
+    "fakerphp/faker": "^1.24",
     "magento/framework": "^102.0.3 || 103.0.*",
     "mockery/mockery": "^1.4",
     "phpunit/phpunit": "^9",
@@ -25,7 +25,7 @@
     "test": "./vendor/bin/phpunit --coverage-cobertura cobertura-report.xml --coverage-text",
     "lint": "./vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR12 ./lib"
   },
-  "version": "1.0.12",
+  "version": "1.0.13",
   "autoload": {
     "files": [
       "registration.php"
